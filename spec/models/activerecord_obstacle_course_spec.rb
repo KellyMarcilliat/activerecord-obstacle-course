@@ -42,7 +42,8 @@ describe 'ActiveRecord Obstacle Course' do
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
-    # Solution goes here
+    orders_of_500 = Order.where(amount: 500)
+    orders_of_200 = Order.where(amount: 200)
     # ------------------------------------------------------------
 
     # Expectation
@@ -56,7 +57,7 @@ describe 'ActiveRecord Obstacle Course' do
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
-    # Solution goes here
+    order_id = Order.minimum(:id)
     # ------------------------------------------------------------
 
     # Expectation
@@ -69,7 +70,7 @@ describe 'ActiveRecord Obstacle Course' do
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
-    # Solution goes here
+    order_id = Order.maximum(:id) 
     # ------------------------------------------------------------
 
     # Expectation
@@ -88,7 +89,9 @@ describe 'ActiveRecord Obstacle Course' do
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
-    # Solution goes here
+    # Client.where(locked: true).or(Client.where(orders_count: [1,3,5]))
+    orders_of_500_and_700 = Order.where(amount: 500).or(Order.where(amount: 700))
+    orders_of_700_and_1000 = Order.where(amount: 700).or(Order.where(amount: 1000))
     # ------------------------------------------------------------
 
     # Expectation
